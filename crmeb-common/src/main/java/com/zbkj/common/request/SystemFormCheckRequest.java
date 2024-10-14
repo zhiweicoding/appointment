@@ -2,28 +2,35 @@ package com.zbkj.common.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * 整体保存表单数据
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@ApiModel(value = "SystemFormCheckRequest对象", description = "整体保存表单数据")
+@ApiModel(value="SystemFormCheckRequest对象", description="整体保存表单数据")
 public class SystemFormCheckRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -2506804407375185455L;
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "表单名称", required = true)
     @Min(value = 0, message = "请选择表单")

@@ -3,21 +3,28 @@ package com.zbkj.common.request;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * 商品添加对象
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -26,45 +33,44 @@ import java.util.List;
 @ApiModel(value="StoreProductAddRequest对象", description="商品添加对象")
 public class StoreProductAddRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -2568145303758431041L;
+    private static final long serialVersionUID = -452373239606480650L;
 
     @ApiModelProperty(value = "商品id|添加时不填，修改时必填")
     private Integer id;
 
     @ApiModelProperty(value = "商品图片", required = true)
     @NotBlank(message = "商品图片不能为空")
-    @Size(max = 255, message = "商品图片名称长度不能超过255个字符")
+    @Length(max = 255, message = "商品图片名称长度不能超过255个字符")
     private String image;
 
     @ApiModelProperty(value = "轮播图", required = true)
     @NotBlank(message = "轮播图不能为空")
-    @Size(max = 2000, message = "轮播图名称长度不能超过2000个字符")
+    @Length(max = 2000, message = "轮播图名称长度不能超过2000个字符")
     private String sliderImage;
 
     @ApiModelProperty(value = "商品名称", required = true)
     @NotBlank(message = "商品名称不能为空")
-    @Size(max = 128, message = "商品名称长度不能超过128个字符")
+    @Length(max = 128, message = "商品名称长度不能超过128个字符")
     private String storeName;
 
     @ApiModelProperty(value = "商品简介", required = true)
     @NotBlank(message = "商品简介不能为空")
-    @Size(max = 256, message = "商品简介长度不能超过256个字符")
+    @Length(max = 256, message = "商品简介长度不能超过256个字符")
     private String storeInfo;
 
     @ApiModelProperty(value = "关键字", required = true)
-    @Size(max = 255, message = "关键字长度不能超过255个字符")
+    @Length(max = 255, message = "关键字长度不能超过255个字符")
     @NotBlank(message = "关键字不能为空")
     private String keyword;
 
     @ApiModelProperty(value = "分类id|逗号分隔", required = true)
     @NotBlank(message = "商品分类不能为空")
-    @Size(max = 64, message = "商品分类组合长度不能超过64个字符")
+    @Length(max = 64, message = "商品分类组合长度不能超过64个字符")
     private String cateId;
 
     @ApiModelProperty(value = "单位名", required = true)
     @NotBlank(message = "单位名称不能为空")
-    @Size(max = 32, message = "单位名长度不能超过32个字符")
+    @Length(max = 32, message = "单位名长度不能超过32个字符")
     private String unitName;
 
     @ApiModelProperty(value = "排序")
@@ -121,6 +127,6 @@ public class StoreProductAddRequest implements Serializable {
     private List<Integer> couponIds;
 
     @ApiModelProperty(value = "展示图")
-    @Size(max = 1000, message = "展示图名称长度不能超过1000个字符")
+    @Length(max = 1000, message = "展示图名称长度不能超过1000个字符")
     private String flatPattern;
 }

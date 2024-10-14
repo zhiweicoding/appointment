@@ -8,12 +8,19 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import javax.validation.constraints.Pattern;
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * 换绑手机号请求对象
-
+ *  +----------------------------------------------------------------------
+ *  | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ *  +----------------------------------------------------------------------
+ *  | Author: CRMEB Team <admin@crmeb.com>
+ *  +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -21,8 +28,7 @@ import java.io.Serializable;
 @ApiModel(value="UserBindingPhoneUpdateRequest", description="换绑手机号请求对象")
 public class UserBindingPhoneUpdateRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= -6063648060993186477L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "手机号", required = true)
     @Pattern(regexp = RegularConstants.PHONE_TWO, message = "手机号码格式错误")

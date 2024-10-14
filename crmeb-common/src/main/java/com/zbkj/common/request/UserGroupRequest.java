@@ -1,19 +1,29 @@
 package com.zbkj.common.request;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import java.io.Serial;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
  * 用户分组表
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -22,12 +32,11 @@ import java.io.Serializable;
 @ApiModel(value="UserGroup对象", description="用户分组表")
 public class UserGroupRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= 4922374993327408870L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "用户分组名称")
     @NotBlank(message = "请填写分组名称")
-    @Size(max = 64, message = "用户分组名称不能超过64个字符")
+    @Length(max = 64, message = "用户分组名称不能超过64个字符")
     private String groupName;
 
 }

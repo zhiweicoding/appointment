@@ -5,17 +5,24 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-
-import java.io.Serial;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
  * 评论添加对象
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -23,8 +30,7 @@ import java.io.Serializable;
 @ApiModel(value="StoreProductReplyAddRequest对象", description="评论添加对象")
 public class StoreProductReplyAddRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= 8521366246363905833L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "订单编号， 移动端必须传递此参数")
     private String orderNo;
@@ -40,16 +46,16 @@ public class StoreProductReplyAddRequest implements Serializable {
     private String unique;
 
     @ApiModelProperty(value = "商品分数", example = "5", required = true)
-    @Size(min = 1, max = 5, message = "商品分数为1-5")
+    @Range(min = 1, max = 5, message = "商品分数为1-5")
     private Integer productScore;
 
     @ApiModelProperty(value = "服务分数", example = "5", required = true)
-    @Size(min = 1, max = 5, message = "服务分数为1-5")
+    @Range(min = 1, max = 5, message = "服务分数为1-5")
     private Integer serviceScore;
 
     @ApiModelProperty(value = "评论内容", required = true)
     @NotBlank(message = "请填写评论内容")
-    @Size(max = 512, message = "评论内容长度不能超过512个字符")
+    @Length(max = 512, message = "评论内容长度不能超过512个字符")
     private String comment;
 
     @ApiModelProperty(value = "评论图片", required = true)

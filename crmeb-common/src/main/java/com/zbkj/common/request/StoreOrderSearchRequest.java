@@ -4,17 +4,25 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.zbkj.common.annotation.StringContains;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
  * 订单列表请求对象
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -36,6 +44,6 @@ public class StoreOrderSearchRequest implements Serializable {
 
     @ApiModelProperty(value = "订单类型：0普通订单，1-视频号订单, 2-全部订单")
     @NotNull(message = "订单类型不能为空")
-    @Size(min = 0, max = 2, message = "未知的订单类型")
+    @Range(min = 0, max = 2, message = "未知的订单类型")
     private Integer type;
 }

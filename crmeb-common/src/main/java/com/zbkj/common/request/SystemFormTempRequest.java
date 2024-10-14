@@ -8,16 +8,24 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * 表单模板
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -30,12 +38,12 @@ public class SystemFormTempRequest implements Serializable {
 
     @ApiModelProperty(value = "表单名称", required = true)
     @NotBlank(message = "请填写表单名称")
-    @Size(max = 500, message = "表单名称长度不能超过500个字符")
+    @Length(max = 500, message = "表单名称长度不能超过500个字符")
     private String name;
 
     @ApiModelProperty(value = "表单简介", required = true)
     @NotBlank(message = "请填写表单简介")
-    @Size(max = 500, message = "表单简介长度不能超过500个字符")
+    @Length(max = 500, message = "表单简介长度不能超过500个字符")
     private String info;
 
     @ApiModelProperty(value = "表单内容", required = true)

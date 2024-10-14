@@ -8,13 +8,20 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 充值
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -22,8 +29,7 @@ import java.math.BigDecimal;
 @ApiModel(value="UserRechargeRequest对象", description="充值")
 public class UserRechargeRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= -5592613429645708152L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "充值金额")
 //    @DecimalMin(value = "1", message = "充值金额不能小于1") todo 测试完后放开

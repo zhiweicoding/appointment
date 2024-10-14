@@ -2,23 +2,27 @@ package com.zbkj.common.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
 /**
  * 砍价商品Request
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -38,22 +42,22 @@ public class StoreBargainRequest implements Serializable {
 
     @ApiModelProperty(value = "砍价活动名称")
     @NotBlank(message = "砍价活动名称不能为空")
-    @Size(max = 200, message = "砍价活动名称不能超过200个字符")
+    @Length(max = 200, message = "砍价活动名称不能超过200个字符")
     private String title;
 
     @ApiModelProperty(value = "砍价活动图片")
     @NotBlank(message = "砍价活动图片不能为空")
-    @Size(max = 150, message = "砍价活动图片不能超过150个字符")
+    @Length(max = 150, message = "砍价活动图片不能超过150个字符")
     private String image;
 
     @ApiModelProperty(value = "单位名称")
     @NotBlank(message = "单位名称不能为空")
-    @Size(max = 16, message = "单位名称不能超过16个字符")
+    @Length(max = 16, message = "单位名称不能超过16个字符")
     private String unitName;
 
     @ApiModelProperty(value = "砍价商品轮播图")
     @NotBlank(message = "轮播图不能为空")
-    @Size(max = 2000, message = "砍价商品轮播图不能超过2000个字符")
+    @Length(max = 2000, message = "砍价商品轮播图不能超过2000个字符")
     private String images;
 
     @ApiModelProperty(value = "砍价开启时间")
@@ -66,7 +70,7 @@ public class StoreBargainRequest implements Serializable {
 
     @ApiModelProperty(value = "砍价商品名称")
     @NotBlank(message = "砍价商品名称不能为空")
-    @Size(max = 200, message = "砍价商品名称不能超过200个字符")
+    @Length(max = 200, message = "砍价商品名称不能超过200个字符")
     private String storeName;
 
     @ApiModelProperty(value = "砍价金额")

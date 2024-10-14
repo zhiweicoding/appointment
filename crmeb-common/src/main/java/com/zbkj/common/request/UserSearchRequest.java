@@ -8,22 +8,30 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * 用户表
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("eb_user")
-@ApiModel(value = "User对象", description = "用户表")
+@ApiModel(value="User对象", description="用户表")
 public class UserSearchRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -5666792238982964195L;
+    private static final long serialVersionUID=1L;
 
 
     @ApiModelProperty(value = "关键字")
@@ -39,7 +47,7 @@ public class UserSearchRequest implements Serializable {
     private String labelId;
 
     @ApiModelProperty(value = "用户登陆类型，h5 = h5， wechat = wechat，routine = routine", allowableValues = "range[h5,wechat,routine]")
-    @StringContains(limitValues = {"h5", "wechat", "routine"}, message = "请选择正确的用户登录类型")
+    @StringContains(limitValues = {"h5","wechat","routine"}, message = "请选择正确的用户登录类型")
     private String userType;
 
     @ApiModelProperty(value = "状态是否正常， 0 = 禁止， 1 = 正常")

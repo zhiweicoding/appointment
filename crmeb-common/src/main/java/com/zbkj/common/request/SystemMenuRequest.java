@@ -3,15 +3,16 @@ package com.zbkj.common.request;
 import com.zbkj.common.annotation.StringContains;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -37,7 +38,7 @@ public class SystemMenuRequest implements Serializable {
 
     @NotEmpty(message = "菜单名称不能为空")
     @ApiModelProperty(value = "名称")
-    @Size(max = 100, message = "菜单名称不能超过100个字符")
+    @Length(max = 100, message = "菜单名称不能超过100个字符")
     private String name;
 
     @ApiModelProperty(value = "icon")

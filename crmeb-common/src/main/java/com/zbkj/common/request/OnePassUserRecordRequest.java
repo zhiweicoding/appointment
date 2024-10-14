@@ -4,16 +4,24 @@ import com.zbkj.common.annotation.StringContains;
 import com.zbkj.common.constants.Constants;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotBlank;
 
 /**
  * 一号通用量记录请求对象
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -29,7 +37,7 @@ public class OnePassUserRecordRequest {
     private String type;
 
     @ApiModelProperty(value = "短信状态(短信类型时必传)：0发送中，1成功，2失败，3全部")
-    @Size(min = 0, max = 3, message = "未知的短信状态")
+    @Range(min = 0, max = 3, message = "未知的短信状态")
     private Integer status;
 
     @ApiModelProperty(value = "页码", example = Constants.DEFAULT_PAGE + "")

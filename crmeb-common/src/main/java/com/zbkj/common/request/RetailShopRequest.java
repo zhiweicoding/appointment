@@ -2,16 +2,25 @@ package com.zbkj.common.request;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * 分销设置参数
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 public class RetailShopRequest {
@@ -34,12 +43,12 @@ public class RetailShopRequest {
 
     @ApiModelProperty(value = "一级返佣比例")
     @NotNull(message = "一级返佣比例 不能为空")
-    @Size(min = 0, max = 100, message = "一级返佣比例请在0-100中选择")
+    @Range(min = 0, max = 100, message = "一级返佣比例请在0-100中选择")
     private Integer storeBrokerageRatio;
 
     @ApiModelProperty(value = "二级返佣比例")
     @NotNull(message = "二级返佣比例 不能为空")
-    @Size(min = 0, max = 100, message = "二级返佣比例在0-100中选择")
+    @Range(min = 0, max = 100, message = "二级返佣比例在0-100中选择")
     private Integer storeBrokerageTwo;
 
     @ApiModelProperty(value = "分销关系绑定:0-所有用户，1-新用户")
@@ -62,7 +71,7 @@ public class RetailShopRequest {
 
     @ApiModelProperty(value = "是否展示分销气泡：0-展示，1-展示")
     @NotNull(message = "是否展示分销气泡 不能为空")
-    @Size(min = 0, max = 1, message = "是否展示分销气泡只能选择0-1")
+    @Range(min = 0, max = 1, message = "是否展示分销气泡只能选择0-1")
     private Integer storeBrokerageIsBubble;
 
 }

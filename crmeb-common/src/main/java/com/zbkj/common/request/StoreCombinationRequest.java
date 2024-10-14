@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -15,7 +15,15 @@ import java.util.List;
 
 /**
  * 拼团商品表
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -35,17 +43,17 @@ public class StoreCombinationRequest implements Serializable {
 
     @ApiModelProperty(value = "推荐图")
     @NotNull(message = "商品主图不能为空")
-    @Size(max = 255, message = "推荐图不能超过255个字符")
+    @Length(max = 255, message = "推荐图不能超过255个字符")
     private String image;
 
     @ApiModelProperty(value = "轮播图")
     @NotNull(message = "轮播图不能为空")
-    @Size(max = 2000, message = "轮播图不能超过2000个字符")
+    @Length(max = 2000, message = "轮播图不能超过2000个字符")
     private String images;
 
     @ApiModelProperty(value = "活动标题")
     @NotNull(message = "拼团名称不能为空")
-    @Size(max = 200, message = "活动标题不能超过200个字符")
+    @Length(max = 200, message = "活动标题不能超过200个字符")
     private String title;
 
     @ApiModelProperty(value = "参团人数")
@@ -76,7 +84,7 @@ public class StoreCombinationRequest implements Serializable {
 
     @ApiModelProperty(value = "单位名")
     @NotNull(message = "单位不能为空")
-    @Size(max = 32, message = "单位名不能超过32个字符")
+    @Length(max = 32, message = "单位名不能超过32个字符")
     private String unitName;
 
     @ApiModelProperty(value = "运费模板ID")

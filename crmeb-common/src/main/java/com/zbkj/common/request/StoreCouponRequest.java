@@ -3,24 +3,28 @@ package com.zbkj.common.request;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import java.io.Serial;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * 优惠卷表
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -29,12 +33,11 @@ import java.util.Date;
 @ApiModel(value="StoreCouponRequest对象", description="优惠券表")
 public class StoreCouponRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= 4931778676123737425L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "优惠券名称", required = true)
     @NotBlank(message = "请填写优惠券名称")
-    @Size(max = 64, message = "优惠券名称长度不能超过64个字符")
+    @Length(max = 64, message = "优惠券名称长度不能超过64个字符")
     private String name;
 
     @ApiModelProperty(value = "兑换的优惠券面值", required = true)
@@ -50,7 +53,7 @@ public class StoreCouponRequest implements Serializable {
     private Integer total;
 
     @ApiModelProperty(value = "使用类型 1 全场通用, 2 商品券, 3 品类券")
-    @Size(min = 1, max = 3, message = "请选择优惠券使用类型")
+    @Range(min = 1, max = 3, message = "请选择优惠券使用类型")
     private Integer useType;
 
     @ApiModelProperty(value = "主键id 商品id/分类id", required = true)
@@ -84,7 +87,7 @@ public class StoreCouponRequest implements Serializable {
     private Integer day;
 
     @ApiModelProperty(value = "优惠券类型 1 手动领取, 2 新人券, 3 赠送券")
-    @Size(min = 1, max = 3, message = "请选择优惠券领取方式")
+    @Range(min = 1, max = 3, message = "请选择优惠券领取方式")
     private Integer type;
 
     @ApiModelProperty(value = "排序")

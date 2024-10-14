@@ -3,21 +3,28 @@ package com.zbkj.common.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
  * 用户提现表
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -25,12 +32,11 @@ import java.math.BigDecimal;
 @ApiModel(value="UserExtractRequest对象", description="用户提现")
 public class UserExtractRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= -7770181421439438384L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "姓名")
     @NotBlank(message = "提现用户名称必须填写")
-    @Size(max = 64, message = "提现用户名称不能超过64个字符")
+    @Length(max = 64, message = "提现用户名称不能超过64个字符")
     @JsonProperty(value = "name")
     private String realName;
 

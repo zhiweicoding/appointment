@@ -2,19 +2,28 @@ package com.zbkj.common.request;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
  * 秒杀商品添加请求对象
-
+ * +----------------------------------------------------------------------
+ * | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ * +----------------------------------------------------------------------
+ * | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ * +----------------------------------------------------------------------
+ * | Author: CRMEB Team <admin@crmeb.com>
+ * +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -31,27 +40,27 @@ public class StoreSeckillAddRequest {
 
     @ApiModelProperty(value = "推荐图", required = true)
     @NotBlank(message = "推荐图不能为空")
-    @Size(max = 255, message = "推荐图名称长度不能超过255个字符")
+    @Length(max = 255, message = "推荐图名称长度不能超过255个字符")
     private String image;
 
     @ApiModelProperty(value = "轮播图", required = true)
     @NotBlank(message = "轮播图不能为空")
-    @Size(max = 2000, message = "轮播图长度不能超过2000个字符")
+    @Length(max = 2000, message = "轮播图长度不能超过2000个字符")
     private String images;
 
     @ApiModelProperty(value = "活动标题", required = true)
     @NotBlank(message = "活动标题不能为空")
-    @Size(max = 255, message = "活动标题长度不能超过255个字符")
+    @Length(max = 255, message = "活动标题长度不能超过255个字符")
     private String title;
 
     @ApiModelProperty(value = "简介", required = true)
     @NotBlank(message = "简介不能为空")
-    @Size(max = 255, message = "简介长度不能超过255个字符")
+    @Length(max = 255, message = "简介长度不能超过255个字符")
     private String info;
 
     @ApiModelProperty(value = "单位名", required = true)
     @NotBlank(message = "单位名不能为空")
-    @Size(max = 16, message = "单位名长度不能超过16个字符")
+    @Length(max = 16, message = "单位名长度不能超过16个字符")
     private String unitName;
 
     @ApiModelProperty(value = "开始时间", required = true)
@@ -64,7 +73,7 @@ public class StoreSeckillAddRequest {
 
     @ApiModelProperty(value = "秒杀状态 0=关闭 1=开启", required = true)
     @NotNull(message = "秒杀状态不能为空")
-    @Size(min = 0, max = 1, message = "未知的秒杀状态")
+    @Range(min = 0, max = 1, message = "未知的秒杀状态")
     private Integer status;
 
     @ApiModelProperty(value = "当天参加秒杀次数", required = true)

@@ -3,18 +3,25 @@ package com.zbkj.common.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.io.Serial;
 import java.io.Serializable;
 
 /**
  * 商品点赞和收藏表
-
+ *  +----------------------------------------------------------------------
+ *  | CRMEB [ CRMEB赋能开发者，助力企业发展 ]
+ *  +----------------------------------------------------------------------
+ *  | Copyright (c) 2016~2022 https://www.crmeb.com All rights reserved.
+ *  +----------------------------------------------------------------------
+ *  | Licensed CRMEB并不是自由软件，未经许可不能去掉CRMEB相关版权
+ *  +----------------------------------------------------------------------
+ *  | Author: CRMEB Team <admin@crmeb.com>
+ *  +----------------------------------------------------------------------
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -22,8 +29,7 @@ import java.io.Serializable;
 @ApiModel(value="StoreProductRelationRequest对象", description="商品点赞和收藏表")
 public class UserCollectAllRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID= 3175362051242474455L;
+    private static final long serialVersionUID=1L;
 
     @ApiModelProperty(value = "商品ID")
     @JsonProperty("id")
