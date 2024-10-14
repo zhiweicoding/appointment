@@ -9,30 +9,37 @@
         <module>crmeb-admin</module>
         <module>crmeb-front</module>
     </modules>
-
-    <parent>
+    <!--<parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
-        <relativePath/>
-    </parent>
+        <version>2.2.6.RELEASE</version>
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
+    </parent>-->
     <groupId>com.zbkj</groupId>
     <artifactId>crmeb</artifactId>
     <version>1.0.0</version>
     <name>crmeb</name>
-    <description>appointment</description>
+    <description>Crmeb project for Spring Boot</description>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
         <springfox.version>2.9.2</springfox.version>
         <swagger-models.version>1.5.22</swagger-models.version>
         <swagger-bootstrap-ui.version>1.9.3</swagger-bootstrap-ui.version>
+        <!--        兼容个别 mav 环境 GBK问题-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <!-- 依赖声明 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.2.6.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
             <dependency>
@@ -61,7 +68,7 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.5.5</version>
+                <version>3.3.1</version>
             </dependency>
 
             <dependency>
@@ -114,6 +121,12 @@
                         <artifactId>swagger-models</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-models.version}</version>
             </dependency>
 
             <dependency>
@@ -295,13 +308,12 @@
                 <artifactId>jwks-rsa</artifactId>
                 <version>0.9.0</version>
             </dependency>
-
             <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>3.1.0</version>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.34</version>
+                <scope>provided</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 
@@ -310,16 +322,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.6.1</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>UTF-8</encoding>
-                    <fork>true</fork>
-                    <compilerArgs>
-                        <arg>--add-opens</arg>
-                        <arg>jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                    </compilerArgs>
+                    <!-- java8 保留参数名编译参数 -->
+                    <compilerArgument>-parameters</compilerArgument>
+                    <compilerArguments>
+                        <verbose/>
+                    </compilerArguments>
+                    <!-- <failOnMissingWebXml>false</failOnMissingWebXml> -->
                 </configuration>
             </plugin>
         </plugins>

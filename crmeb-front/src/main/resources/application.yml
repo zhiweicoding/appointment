@@ -9,16 +9,12 @@ server:
     min-spare-threads: 30   # 初始化启动线程数量
 
 spring:
-  profiles:
-    #  配置的环境
-    #    active: #spring.profiles.active#
-    active:
+  main:
+    allow-circular-references: true
   servlet:
     multipart:
       max-file-size: 50MB #设置单个文件大小
       max-request-size: 50MB #设置单次请求文件的总大小
-  resources:
-    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${crmeb.filePath}
   application:
     name: front #这个很重要，这在以后的服务与服务之间相互调用一般都是根据这个name
   jackson:
@@ -44,6 +40,9 @@ spring:
         max-idle: 10 # 连接池中的最大空闲连接
         min-idle: 0 # 连接池中的最小空闲连接
         time-between-eviction-runs: -1 #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+  web:
+    resources:
+      static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${crmeb.filePath}
 
 debug: true
 logging:
