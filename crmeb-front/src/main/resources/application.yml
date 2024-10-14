@@ -30,7 +30,7 @@ spring:
     password:
   redis:
     host:
-    port:
+    port: 6379
     database:
     timeout: 30000 # 连接超时时间（毫秒）
     jedis:
