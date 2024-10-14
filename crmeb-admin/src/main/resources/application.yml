@@ -28,7 +28,7 @@ spring:
       max-file-size: 50MB #设置单个文件大小
       max-request-size: 50MB #设置单次请求文件的总大小
   application:
-    name: admin #这个很重要，这在以后的服务与服务之间相互调用一般都是根据这个name
+    name: admin
   jackson:
     locale: zh_CN
     time-zone: GMT+8
