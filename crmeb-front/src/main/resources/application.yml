@@ -36,7 +36,6 @@ spring:
     host:
     port:
     database:
-    password:
     timeout: 30000 # 连接超时时间（毫秒）
     jedis:
       pool:
