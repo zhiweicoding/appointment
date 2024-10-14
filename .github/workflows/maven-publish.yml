@@ -34,9 +34,7 @@ jobs:
       - name: Push crmeb-front Docker Image
         run: |
           docker push loveqianqian/crmeb-front:1.0.0
-          docker push loveqianqian/crmeb-front:latest
 
       - name: Push crmeb-admin Docker Image
         run: |
           docker push loveqianqian/crmeb-admin:1.0.0
-          docker push loveqianqian/crmeb-admin:latest
